@@ -1,0 +1,42 @@
+html, body {
+	margin: 0px;
+}
+
+header {
+	color: white;
+	font-size: 50px;
+	background: #1D1D1D;
+	height: 80px;
+}
+header span {
+	line-height: 80px;
+	float: left;
+}
+header #title {
+	width: calc( 100% - 85px );
+	color: white;
+	margin: 0;
+	height: 75px;
+	font-size: 50px;
+	border: 0;
+	padding-left: 5px;
+	background: #1D1D1D;
+}
+header #title:focus {
+	border: 0;
+	outline: none;
+	border-bottom: solid 2px #154CFF;
+}
+header #add {
+	width: 80px;
+	background: #154CFF;
+	text-align: center;
+}
+
+.todo {
+	padding: 10px;
+}
+.todo .close {
+	background: red;
+	padding: 5px;
+}
