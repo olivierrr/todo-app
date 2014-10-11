@@ -20,7 +20,7 @@ TodoManager.prototype.add = function (task) {
     this.todos.push({
         isCompleted : false,
         task : task || 'todo task',
-        id : this.todos.length
+        id : Math.random()
     })
 }
 

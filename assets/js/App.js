@@ -24,8 +24,9 @@ var App = function ($todoList, $addButton, $addInput) {
      */
     this.todoTemplate = 
         '<li class="todo" id="<%this.id%>">' + 
-            '<span class="close" id="<%this.id%>" data-action="remove" > x </span>' +
+            '<span class="toggle <%if(this.isCompleted) {%>on<%}%>" id="<%this.id%>" data-action="toggle"></span>' +
             '<%this.task%> ' +
+            '<span class="close" id="<%this.id%>" data-action="remove" > x </span>' +
         '</li>'
 
     /*
@@ -33,6 +34,15 @@ var App = function ($todoList, $addButton, $addInput) {
      */
     this.todoManager = new TodoManager()
 
+    this.boot()
+
+}
+
+/*
+ * @method
+ */
+App.prototype.boot = function () {
+    this.$addInput.focus()
     this.attachEvents()
 }
 
@@ -45,7 +55,7 @@ App.prototype.render = function() {
 
     this.$todoList.innerHTML = todos.map(function (todo) {
         return template(_this.todoTemplate, todo)
-    }).join('')
+    }).reverse().join('')
 }
 
 /*
@@ -77,6 +87,8 @@ App.prototype.attachEvents = function () {
         if(action !== null) {
             var id = event.target.getAttribute('id')
 
+            console.log(action, 'id', id)
+
             switch (action) {
 
                 case 'remove':
@@ -90,7 +102,8 @@ App.prototype.attachEvents = function () {
                     break
 
                 case 'toggle':
-                    _this.todoManager.toggle(id)
+                    console.log('derrrp')
+                    _this.todoManager.toggleCompleted(id)
                     _this.render()
                     break
             }
