@@ -25,7 +25,7 @@ var App = function ($todoList, $addButton, $addInput) {
     this.todoTemplate = 
         '<li class="todo" id="<%this.id%>">' + 
             '<span class="toggle <%if(this.isCompleted) {%>on<%}%>" id="<%this.id%>" data-action="toggle"></span>' +
-            '<%this.task%> ' +
+            '<span class="task"> <%this.task%> </span>' +
             '<span class="close" id="<%this.id%>" data-action="remove" > x </span>' +
         '</li>'
 

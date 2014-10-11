@@ -43,6 +43,7 @@ header #add {
 	width: 80px;
 	background: #154CFF;
 	text-align: center;
+	cursor: pointer;
 }
 
 /*
@@ -52,17 +53,29 @@ header #add {
 	list-style-type: none;
 	background: #FFFFFF;
 	overflow: auto;
+	line-height: 80px;
+}
+.todo .task {
+	margin-left: 20px;
+	color: #585858;
 }
 .todo .close {
+	cursor: pointer;
 	-moz-user-select: none;
   	-webkit-user-select: none;
   	-ms-user-select: none;
 	float: right;
+	position: relative;
 	width: 80px;
 	height: 80px;
-	background: #FF3942;
+	background: #FF242E;
+	color: white;
+	font-size: 40px;
+	overflow: hidden;
+	text-align: center;
 }
 .todo .toggle {
+	cursor: pointer;
 	-moz-user-select: none;
   	-webkit-user-select: none;
   	-ms-user-select: none;
