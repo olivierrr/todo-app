@@ -81,9 +81,13 @@ App.prototype.attachEvents = function () {
     }, false)
 
     function onTodoSubmit (event) {
-        _this.todoManager.add(_this.$addInput.value)
-        _this.$addInput.value = ''
-        _this.render()
+        var newTask = _this.$addInput.value
+
+        if(newTask.length > 0) {
+            _this.todoManager.add(newTask)
+            _this.$addInput.value = ''
+            _this.render()
+        }
     }
 
     function onTodoClick (event) {
@@ -106,7 +110,6 @@ App.prototype.attachEvents = function () {
                     break
 
                 case 'toggle':
-                    console.log('derrrp')
                     _this.todoManager.toggleCompleted(id)
                     _this.render()
                     break
