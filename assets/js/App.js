@@ -44,6 +44,8 @@ var App = function ($todoList, $addButton, $addInput) {
 App.prototype.boot = function () {
     this.$addInput.focus()
     this.attachEvents()
+    this.load()
+    this.render()
 }
 
 /*
@@ -56,6 +58,8 @@ App.prototype.render = function() {
     this.$todoList.innerHTML = todos.map(function (todo) {
         return template(_this.todoTemplate, todo)
     }).reverse().join('')
+
+    this.save()
 }
 
 /*
@@ -115,12 +119,19 @@ App.prototype.attachEvents = function () {
  * @method
  */
 App.prototype.save = function () {
-    // body...
+    if (this.isLocalStorageSuported) window.localStorage.setItem('todo-app', JSON.stringify(this.todoManager.todos))
 }
 
 /*
  * @method
  */
 App.prototype.load = function () {
-    // body...
+    if (this.isLocalStorageSuported) this.todoManager.todos = JSON.parse(window.localStorage.getItem('todo-app'))
+}
+
+/*
+ * @method
+ */
+App.prototype.isLocalStorageSuported = function() {
+    return !!window.localStorage
 }
