@@ -46,6 +46,10 @@ App.prototype.boot = function () {
     this.attachEvents()
     this.load()
     this.render()
+
+    Velocity(this.$todoList.children, 'transition.flipYIn', {
+        duration: 700, stagger: 50
+    })
 }
 
 /*
@@ -83,37 +87,26 @@ App.prototype.attachEvents = function () {
     function onTodoSubmit (event) {
         var newTask = _this.$addInput.value
 
-        if(newTask.length > 0) {
+        if(newTask.trim().length > 0) {
             _this.todoManager.add(newTask)
             _this.$addInput.value = ''
             _this.render()
+        } else {
+            Velocity(_this.$addInput, 'callout.bounce', {duration: 250, drag: true})
         }
     }
 
     function onTodoClick (event) {
         var action = event.target.getAttribute('data-action')
+        var id = event.target.getAttribute('id')
+
         if(action !== null) {
-            var id = event.target.getAttribute('id')
-
-            console.log(action, 'id', id)
-
             switch (action) {
-
-                case 'remove':
-                    _this.todoManager.remove(id)
-                    _this.render()
-                    break
-
-                case 'edit':
-                    _this.todoManager.editTask(id, 'derp')
-                    _this.render()
-                    break
-
-                case 'toggle':
-                    _this.todoManager.toggleCompleted(id)
-                    _this.render()
-                    break
+                case 'remove':  _this.todoManager.remove(id)                ;break
+                case 'edit':    _this.todoManager.editTask(id, 'to-do!')    ;break
+                case 'toggle':  _this.todoManager.toggleCompleted(id)       ;break
             }
+            _this.render()
         }
     }
 }

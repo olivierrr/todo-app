@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 /*
 	body
@@ -6,6 +6,7 @@
 body {
 	background: #EDEDED;
 	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
 }
 
 /*
@@ -40,6 +41,7 @@ header #add {
 	-moz-user-select: none;
   	-webkit-user-select: none;
   	-ms-user-select: none;
+  	font-size: 50px;
 	width: 80px;
 	background: #154CFF;
 	text-align: center;
@@ -58,6 +60,7 @@ header #add {
 .todo .task {
 	margin-left: 20px;
 	color: #585858;
+	overflow: hidden;
 }
 .todo .close {
 	cursor: pointer;
