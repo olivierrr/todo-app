@@ -122,7 +122,7 @@ App.prototype.save = function () {
  * @method
  */
 App.prototype.load = function () {
-    if (this.isLocalStorageSuported) this.todoManager.todos = JSON.parse(window.localStorage.getItem('todo-app'))
+    if (this.isLocalStorageSuported) this.todoManager.todos = JSON.parse(window.localStorage.getItem('todo-app')) || []
 }
 
 /*
