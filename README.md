@@ -1,4 +1,6 @@
 todo-app
 ========
 
-a little todo app as an exercise
+###[live demo](http://olivierrr.github.io/todo-app/)
+
+a little oop todo app as an exercise
